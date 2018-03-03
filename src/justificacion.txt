@@ -7,4 +7,4 @@
 
 \f0\fs24 \cf0 Siguiendo el principio de abstraer lo que cambia, el comportamiento de transferencia por protocolo y paseo de datos por formato se abstrajeron en forma de interfaces que permiten utilizar implementaciones concretas de estos mismos.\
 \
-Cada banco tiene una lista de associates lo cual le permite realizar transferencias con ellos con el m\'e9todo de transfer.}
+Cada banco implementa un m\'e9todo de transfer distinto, con el que env\'eda una transferencia con los datos requeridos.}

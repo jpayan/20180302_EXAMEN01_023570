@@ -7,37 +7,29 @@ import java.util.ArrayList;
 public abstract class Bank {
     protected String name;
     protected ProtocolBehavior protocolBehavior;
-    protected FormatBehavior transferBehavior;
-    protected ArrayList<Bank> associates;
+    protected FormatBehavior formatBehavior;
 
-    public Bank(String name, ProtocolBehavior protocolBehavior, FormatBehavior transferBehavior) {
+    public Bank(String name, ProtocolBehavior protocolBehavior, FormatBehavior formatBehavior) {
         this.name = name;
         this.protocolBehavior = protocolBehavior;
-        this.transferBehavior = transferBehavior;
-        this.associates = new ArrayList<>();
+        this.formatBehavior = formatBehavior;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setProtocolBehavior(ProtocolBehavior protocolBehavior) {
         this.protocolBehavior = protocolBehavior;
     }
 
-    public void setTransferBehavior(FormatBehavior transferBehavior) {
-        this.transferBehavior = transferBehavior;
+    public void setFormatBehavior(FormatBehavior formatBehavior) {
+        this.formatBehavior = formatBehavior;
     }
 
-    public void addAssociate(Bank bank) {
-        this.associates.add(bank);
-    }
-
-    public void removeAssociate(Bank bank) {
-        this.associates.remove(bank);
-    }
-
-    public void notifiyUser() {
+    public void notifyUser(String message) {
         System.out.println("User has been notified.");
     }
 
-    public void transfer() {
-        transferBehavior.();
-    }
+    public abstract void transfer(Bank source, Bank target, double amount);
 }
